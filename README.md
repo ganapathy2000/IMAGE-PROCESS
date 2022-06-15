@@ -1,78 +1,78 @@
-pip install opencv_python
-pip install matplotlib
+pip install opencv_python<br>
+pip install matplotlib<br>
 
 PROGRAM 1
-import cv2
-img=cv2.imread('butterflypic.jpg',0)
+import cv2<br>
+img=cv2.imread('butterflypic.jpg',0)<br>
 cv2.imshow('image',img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.waitKey(0)<br><br>
+cv2.destroyAllWindows()<br>
 
-PROGRAM 2
+PROGRAM 2<br>
 import matplotlib.image as mping
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt<br>
 img=mping.imread('butterflypic.jpg')
-plt.imshow(img)
+plt.imshow(img)<br>
 OUTPUT:
-image
+image<br>
 
 
 PROGRAm 3
-from PIL import Image
-img=Image.open("butterflypic.jpg")
-img=img.rotate(180)
-img.show()
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+from PIL import Image<br>
+img=Image.open("butterflypic.jpg")<br>
+img=img.rotate(180)<br>
+img.show()<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
 
-PROGRAm 4
-from PIL import ImageColor
-img1=ImageColor.getrgb("red")
-print(img1)
-OUTPUT:
-(255, 0, 0)
-
-PROGRAM 5
-from PIL import ImageColor
-img=Image.new('RGB',(200,400),(255,255,0))
-img.show()
-
+PROGRAm 4<br>
+from PIL import ImageColor<br>
+img1=ImageColor.getrgb("red")<br>
+print(img1)<br>
+OUTPUT:<br>
+(255, 0, 0)<br>
+<br>
+PROGRAM 5<br>
+from PIL import ImageColor<br>
+img=Image.new('RGB',(200,400),(255,255,0))<br>
+img.show()<br>
+<br>
 PROGRAM 6
-import cv2
-import matplotlib.pyplot as plt
-import numpy as np
-img=cv2.imread('butterflypic.jpg')
-plt.imshow(img)
-plt.show()
-img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-plt.show()
-img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
-plt.show()
+import cv2<br>
+import matplotlib.pyplot as plt<br>
+import numpy as np<br>
+img=cv2.imread('butterflypic.jpg')<br>
+plt.imshow(img)<br>
+plt.show()<br>
+img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)<br>
+plt.show()<br>
+img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)<br>
+plt.show()<br>
 
-OUTPUT:
-image
+OUTPUT:<br>
+image<br>
 
-PROGRAM 7
-from PIL import Image
-image=Image.open('butterflypic.jpg')
-print("Filename:",image.filename)
-print("Format:",image.format)
-print("Mode:",image.mode)
-print("Size:",image.size)
-print("Width:",image.width)
-print("Height:",image.height)
-image.close()
+PROGRAM 7<br>
+from PIL import Image<br>
+image=Image.open('butterflypic.jpg')<br>
+print("Filename:",image.filename)<br>
+print("Format:",image.format)<br>
+print("Mode:",image.mode)<br>
+print("Size:",image.size)<br>
+print("Width:",image.width)<br>
+print("Height:",image.height)<br>
+image.close()<br>
 
-OUTPUT:
+OUTPUT:<br>
 
-Filename: butterflypic.jpg
-Format: JPEG
-
-
-Mode: RGB
+Filename: butterflypic.jpg<br>
+Format: JPEG<br>
 
 
-Size: (1024, 535)
-Width: 1024
+Mode: RGB<br>
 
-Height: 535
+
+Size: (1024, 535)<br>
+Width: 1024<br>
+
+Height: 535<br>
