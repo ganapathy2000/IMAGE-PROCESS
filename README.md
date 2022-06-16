@@ -76,3 +76,17 @@ Size: (1024, 535)<br>
 Width: 1024<br>
 
 Height: 535<br>
+
+
+
+import cv2<br>
+img=cv2.imread('img.jpg')<br>
+cv2.imshow("RGB",img)<br>
+cv2.waitKey(0)<br>
+img=cv2.imread('img.jpg',0)<br>
+cv2.imshow("Gray",img)<br>
+cv2.waitKey(0)<br>
+ret, bw_img=cv2.threshold(img,127,100,cv2.THRESH_BINARY)<br>
+cv2.imshow("Binary",bw_img)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
