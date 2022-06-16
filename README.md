@@ -78,7 +78,7 @@ Width: 1024<br>
 Height: 535<br>
 
 
-
+1. read the file, gray scale,binary img:
 import cv2<br>
 img=cv2.imread('img.jpg')<br>
 cv2.imshow("RGB",img)<br>
