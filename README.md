@@ -199,3 +199,6 @@ cv2.imshow("HLS image",hls)<br>
 cv2.imshow("YUV image",yuv)<br>
 cv2.waitKey(0)<br>
 cv2.destroyAllWindows()<br>
+output:<br>
+![image](https://user-images.githubusercontent.com/98145098/175266787-ee752c81-edf6-422a-991b-1eebec5a1ece.png)<br>
+
