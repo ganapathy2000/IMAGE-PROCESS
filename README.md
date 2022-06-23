@@ -93,4 +93,45 @@ cv2.destroyAllWindows()<br>
  output:
  ![image](https://user-images.githubusercontent.com/98145098/174056152-8d6294a2-8be6-442c-bb2f-9e318d63fbc6.png)<br>
  ![image](https://user-images.githubusercontent.com/98145098/174056291-a7e7f03a-78fe-4165-afaa-be0e67ac47de.png)
+Program using URL:<br><br>
+from skimage import io<br>
+import matplotlib.pyplot as plt<br>
+url='https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg'<br>
+image=io.imread(url)<br>
+plt.imshow(image)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175263174-897925ea-79fa-4f0b-9714-32782376b492.png)<br>
+
+import cv2<br>
+import matplotlib.image as mping<br>
+import matplotlib.pyplot as plt<br>
+#Reading image files<br>
+imgg1= cv2.imread('imgg1.jpg') <br>
+imgg2= cv2.imread('imgg2.jpg')<br>
+fimg1 = imgg1 +imgg2 <br>
+plt.imshow(fimg1)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175263601-c4c80528-b95e-4b57-9742-a37cc6addef6.png)<br>
+<br>
+
+fimg1 = imgg1 *imgg2 <br>
+plt.imshow(fimg1)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175263713-9b509f61-b543-4a00-8b05-d8bad7fd7335.png)<br>
+
+fimg1 = imgg1 /imgg2 <br>
+plt.imshow(fimg1)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175263833-a302f1c3-fc3c-4949-afc6-6e615a256310.png)<br>
+
+fimg1 = imgg1 -imgg2 <br>
+plt.imshow(fimg1)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175263912-63b4ba1e-bb88-4ace-a47d-8279dc11c431.png)<br>
+
 
