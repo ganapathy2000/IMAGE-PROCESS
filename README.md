@@ -135,3 +135,54 @@ OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/98145098/175263912-63b4ba1e-bb88-4ace-a47d-8279dc11c431.png)<br>
 
 
+import cv2<br><br>
+import matplotlib.image as mping<br>
+import matplotlib.pyplot as plt <br>
+img=mping.imread('imggg.jpg')<br>
+plt.imshow(img)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175264367-da8a5a5b-c1a4-41ef-8e2f-5e48ff49bcdd.png)<br>
+
+
+hsv_img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)<br>
+light_orange =(1, 190, 200) <br>
+dark_orange =(18, 255, 255)<br>
+mask= cv2.inRange(hsv_img, light_orange, dark_orange)<br>
+result=cv2.bitwise_and(img,img,mask=mask)<br>
+plt.subplot(1,2,1)<br>
+plt.imshow(mask,cmap="gray")<br>
+plt.subplot(1,2,2)<br>
+plt.imshow(result)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175264495-ef8ecb1c-5f8b-48a4-9abe-d9bef8122584.png)<br>
+
+
+light_white =(0, 0, 200)<br>
+dark_white =(145, 60, 255)<br>
+mask_white=cv2.inRange(hsv_img, light_white, dark_white)<br>
+result_white= cv2.bitwise_and(img,img,mask=mask_white)<br>
+plt.subplot(1, 2, 1)<br>
+plt.imshow(mask_white,cmap="gray")<br>
+plt.subplot(1, 2, 2)<br>
+plt.imshow(result_white)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175264617-1739f3ea-ae44-4800-9f47-2cc8f4c6e2a7.png)<br>
+
+final_mask =mask + mask_white<br>
+final_result = cv2.bitwise_and(img, img, mask=final_mask)<br>
+plt.subplot(1, 2, 1)<br>
+plt.imshow(final_mask, cmap="gray")<br>
+plt.subplot(1, 2, 2)<br>
+plt.imshow(final_result)<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/175265045-3ecff3aa-924d-46d1-a29c-6f8693e6b534.png)<br>
+
+blur =cv2.GaussianBlur (final_result, (7, 7), 8)<br>
+plt.imshow(blur) <br>
+plt.show()<br>
+
+
