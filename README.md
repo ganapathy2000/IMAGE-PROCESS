@@ -202,3 +202,13 @@ cv2.destroyAllWindows()<br>
 output:<br>
 ![image](https://user-images.githubusercontent.com/98145098/175266787-ee752c81-edf6-422a-991b-1eebec5a1ece.png)<br>
 
+import cv2 as c<br><br>
+import numpy as np<br>
+from PIL import Image<br>
+array = np.zeros([100, 200, 3], dtype=np.uint8)<br>
+array[:,:100] =[255, 130, 0]<br>
+array[:,100:] =[0, 0, 255]<br>
+img= Image.fromarray(array)<br>
+img.save('imgs.jpg')<br>
+img.show()<br>
+c.waitKey(0)<br>
