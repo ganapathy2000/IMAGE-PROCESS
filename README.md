@@ -212,3 +212,6 @@ img= Image.fromarray(array)<br>
 img.save('imgs.jpg')<br>
 img.show()<br>
 c.waitKey(0)<br>
+output;<br>
+![image](https://user-images.githubusercontent.com/98145098/175267364-b4e643a6-a2d0-4932-9ac5-6846235e4778.png)<br>
+
