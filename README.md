@@ -215,3 +215,27 @@ c.waitKey(0)<br>
 output;<br>
 ![image](https://user-images.githubusercontent.com/98145098/175267364-b4e643a6-a2d0-4932-9ac5-6846235e4778.png)<br>
 
+#importing Libraries<br>
+import cv2<br>
+import numpy as np<br>
+image = cv2.imread('img2.jpg')<br>
+cv2.imshow('Original Image', image)<br>
+cv2.waitKey(0)<br>
+# Gaussian Blur<br>
+Gaussian = cv2.GaussianBlur (image, (7, 7), 0)
+cv2.imshow('Gaussian Blurring', Gaussian)<br>
+cv2.waitKey(0)<br>
+# Median Blur<br>
+median = cv2.medianBlur (image, 5) <br>
+cv2.imshow('Median Blurring', median)<br>
+cv2.waitKey(0)<br>
+#Bilateral Blur<br>
+bilateral = cv2.bilateralFilter(image, 9, 75, 75)<br>
+cv2.imshow('Bilateral Blurring', bilateral)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+
+output:<br>
+![image](https://user-images.githubusercontent.com/98145098/176405408-31812640-b6e7-4f00-a0f0-97bcd276f3ba.png)<br>
+![image](https://user-images.githubusercontent.com/98145098/176405517-c7a3af4f-8ab2-4fc9-aec7-d85bfc0f3344.png)<br>
+
