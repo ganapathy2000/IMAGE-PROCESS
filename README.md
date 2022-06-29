@@ -264,3 +264,35 @@ cv2.waitKey(0)<br>
 
 OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/98145098/176406229-9e859bc8-2824-4f43-9c38-bcdbe36147db.png)<br>
+
+from PIL import Image<br>
+from PIL import ImageEnhance <br>
+image =Image.open('img2.jpg')<br>
+image.show()<br>
+enh_bri =ImageEnhance.Brightness(image)<br>
+brightness= 1.5<br>
+image_brightened= enh_bri.enhance(brightness)<br>
+image_brightened.show()<br>
+enh_col= ImageEnhance.Color(image)<br>
+color= 1.5<br>
+image_colored =enh_col.enhance(color)<br>
+image_colored.show()<br>
+enh_con =ImageEnhance.Contrast (image) <br>
+contrast = 1.5<br>
+image_contrasted =enh_con.enhance(contrast)<br>
+image_contrasted.show()<br>
+enh_sha =ImageEnhance.Sharpness(image)<br>
+sharpness =3.0<br>
+image_sharped= enh_sha. enhance (sharpness)<br>
+image_sharped.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/176406812-fbcca537-7bd0-4192-934f-ce4a835cb552.png)<br>
+![image](https://user-images.githubusercontent.com/98145098/176406865-d20fccaa-74c4-433f-9b8e-9c17d52f0811.png)<br>
+![image](https://user-images.githubusercontent.com/98145098/176406930-f56459ec-49be-43e0-85df-fad8359970a6.png)<br>
+![image](https://user-images.githubusercontent.com/98145098/176406974-524bdde7-9b72-451c-b637-a6396b6325be.png)<br>
+![image](https://user-images.githubusercontent.com/98145098/176407015-5e838898-c9cf-4b9a-b9d1-ee16fa7ba79a.png)<br>
+
+
+
+
+
