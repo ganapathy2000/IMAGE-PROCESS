@@ -235,7 +235,32 @@ cv2.imshow('Bilateral Blurring', bilateral)<br>
 cv2.waitKey(0)<br>
 cv2.destroyAllWindows()<br>
 
-output:<br>
+Output:<br>
 ![image](https://user-images.githubusercontent.com/98145098/176405408-31812640-b6e7-4f00-a0f0-97bcd276f3ba.png)<br>
 ![image](https://user-images.githubusercontent.com/98145098/176405517-c7a3af4f-8ab2-4fc9-aec7-d85bfc0f3344.png)<br>
+![image](https://user-images.githubusercontent.com/98145098/176405732-24ee18bc-1f0a-49d1-ab37-b43e2298b00a.png)<br>
 
+import cv2<br>
+import matplotlib.pyplot as plt<br>
+image1=cv2.imread('img1.jpg')<br>
+image2=cv2.imread('img.jpg')<br>
+ax=plt.subplots(figsize=(15,10))<br>
+bitwiseAnd= cv2.bitwise_and(image1, image2) <br>
+bitwiseor= cv2.bitwise_or(image1, image2)<br>
+bitwiseXor=cv2.bitwise_xor (image1,image2) <br>
+bitwiseNot_img1= cv2.bitwise_not(image1)<br>
+#bitwiseNot_img1= cv2.bitwise_not(image2)<br>
+plt.subplot(151)<br>
+plt.imshow(bitwiseAnd)<br>
+plt.subplot(152)<br>
+plt.imshow(bitwiseor)<br>
+plt.subplot(153)<br>
+plt.imshow(bitwiseXor)<br>
+plt.subplot(154)<br>
+plt.imshow(bitwiseNot_img1) <br>
+#plt.subplot(155)<br>
+#plt.imshow(bitwiseNot_img2)<br>
+cv2.waitKey(0)<br>
+
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/176406229-9e859bc8-2824-4f43-9c38-bcdbe36147db.png)<br>
