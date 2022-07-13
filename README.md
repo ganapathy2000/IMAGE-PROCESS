@@ -339,7 +339,7 @@ if isSaved:<br>
  ![image](https://user-images.githubusercontent.com/98145098/178697879-7a4827f8-2337-42f2-9564-91752f95afcf.png)<br>
 
 
-GrayScale slicing without background:<br>
+GrayScale slicing with background:<br>
 import cv2<br>
 import numpy as np<br>
 from matplotlib import pyplot as plt<br>
@@ -358,3 +358,25 @@ plt.imshow(equ, 'gray')<br>
 plt.show()<br>
 OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/98145098/178699907-b6d869fd-cd0f-412e-bcfc-a601e8999133.png)<br>
+
+
+GrayScale slicing without background:<br>
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+image=cv2.imread('img2.jpg',0)<br>
+x,y=image.shape<br>
+z=np.zeros((x,y))<br>
+for i in range(0,x):<br>
+    for j in range(0,y): <br>
+        if(image[i][j]>50 and image[i][j]<150):<br>
+            z[i][j]=255<br>
+        else:<br>
+            z[i][j]=0<br>
+equ=np.hstack((image,z))<br>
+plt.title('Graylevel slicing w/o background')<br>
+plt.imshow(equ, 'gray')<br>
+plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/178707085-2835d7eb-8f29-464b-b67c-6482705ee35b.png)
+
