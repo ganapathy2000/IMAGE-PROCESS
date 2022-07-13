@@ -339,7 +339,7 @@ if isSaved:<br>
  ![image](https://user-images.githubusercontent.com/98145098/178697879-7a4827f8-2337-42f2-9564-91752f95afcf.png)<br>
 
 
-GrayScale slicing without background:
+GrayScale slicing without background:<br>
 import cv2<br>
 import numpy as np<br>
 from matplotlib import pyplot as plt<br>
