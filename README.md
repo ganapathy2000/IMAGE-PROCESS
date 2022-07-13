@@ -319,4 +319,22 @@ cv2.waitKey(0)<br>
 OUTPUTL:<br>
 ![image](https://user-images.githubusercontent.com/98145098/176411715-59b94b1f-284f-45fb-92dc-d913aad390c5.png)<br>
 
+Develop a program to<br>
+(i) Read the image,<br>
+(ii)write (save) the grayscale image and<br>
+(iii) display the original image and grayscale image<br>
+import cv2<br>
+OriginalImg=cv2.imread('img2.jpg')<br>
+GrayImg=cv2.imread('img2.jpg',0)<br>
+isSaved=cv2.imwrite('D:/i.jpg', GrayImg)<br>
+cv2.imshow('Display Original Image', OriginalImg)<br>
+cv2.imshow('Display Grayscale Image', GrayImg)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+if isSaved:<br>
+ print('The image is successfully saved.')<br>
+ 
+ OUTPUT:<br>
+ ![image](https://user-images.githubusercontent.com/98145098/178697788-b49da998-8816-44ff-9f36-a3cdb2797190.png)<br>
+ ![image](https://user-images.githubusercontent.com/98145098/178697879-7a4827f8-2337-42f2-9564-91752f95afcf.png)<br>
 
