@@ -380,3 +380,12 @@ plt.show()<br>
 OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/98145098/178707085-2835d7eb-8f29-464b-b67c-6482705ee35b.png)
 
+import numpy as np<br>
+import cv2 as cv<br>
+from matplotlib import pyplot as plt<br>
+img = cv.imread('img2.jpg')<br>
+plt.imshow(img)<br>
+plt.show()<br>
+img = cv.imread('img2.jpg',0)<br>
+plt.hist(img.ravel(),256,[0,256]);<br>
+plt.show()<br>
