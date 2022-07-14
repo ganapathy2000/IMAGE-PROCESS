@@ -389,3 +389,4 @@ plt.show()<br>
 img = cv.imread('img2.jpg',0)<br>
 plt.hist(img.ravel(),256,[0,256]);<br>
 plt.show()<br>
+
