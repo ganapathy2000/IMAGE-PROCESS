@@ -389,4 +389,6 @@ plt.show()<br>
 img = cv.imread('img2.jpg',0)<br>
 plt.hist(img.ravel(),256,[0,256]);<br>
 plt.show()<br>
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98145098/178962784-88f80b28-7dd8-4cfb-b945-5d8b309b8c43.png)
 
