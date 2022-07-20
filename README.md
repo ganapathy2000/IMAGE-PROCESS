@@ -390,7 +390,12 @@ img = cv.imread('img2.jpg',0)<br>
 plt.hist(img.ravel(),256,[0,256]);<br>
 plt.show()<br>
 OUTPUT:<br>
-![image](https://user-images.githubusercontent.com/98145098/178962784-88f80b28-7dd8-4cfb-b945-5d8b309b8c43.png)
+![image](https://user-images.githubusercontent.com/98145098/178962784-88f80b28-7dd8-4cfb-b945-5d8b309b8c43.png)<br>
+
+Program to perform basic image data analysis using intensity transformation:<br>
+a) Image negative<br>
+b) Log transformation<br>
+c) Gamma correction<br>
 
 %matplotlib inline<br>
 import imageio<br>
@@ -445,6 +450,10 @@ plt.axis('off');<br>
 output<br><br>
 ![image](https://user-images.githubusercontent.com/98144065/179949121-b3a06a89-a30b-41e4-b8fa-bd8ba86b633a.png)<br><br>
 prg28<br><br>
+Program to perform basic image manipulation:<br>
+a) Sharpness<br>
+b) Flipping<br>
+c) Cropping<br>
 from PIL import Image<br><br>
 from PIL import ImageFilter <br><br>
 import matplotlib.pyplot as plt<br><br>
