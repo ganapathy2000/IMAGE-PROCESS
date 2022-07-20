@@ -392,3 +392,101 @@ plt.show()<br>
 OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/98145098/178962784-88f80b28-7dd8-4cfb-b945-5d8b309b8c43.png)
 
+%matplotlib inline<br>
+import imageio<br>
+import matplotlib.pyplot as plt<br>
+import warnings<br>
+import matplotlib.cbook<br>
+warnings.filterwarnings ("ignore", category=matplotlib.cbook.mplDeprecation)<br>
+pic=imageio.imread('img1.jpg')<br>
+plt.figure(figsize=(6,6))<br>
+plt.imshow(pic);<br>
+plt.axis('off');<br>
+output<br>
+![image](https://user-images.githubusercontent.com/98144065/179945068-88514aab-e250-4b5c-b082-e548264073f6.png)
+![image](https://user-images.githubusercontent.com/98144065/179947690-79f0a173-5756-4a23-83a1-df1fb000e5d0.png)<br><br>
+
+prg25<br>
+negative =255- pic #neg = (L-1) img <br>
+plt.figure(figsize= (6,6))<br>
+plt.imshow(negative);<br>
+plt.axis('off');<br>
+output<br>
+![image](https://user-images.githubusercontent.com/98144065/179945355-bee6e5d0-710e-4c64-b48a-d7b878680f6c.png)<br><br>
+
+prg26<br><br>
+%matplotlib inline<br>
+import imageio <br>
+import numpy as np <br>
+import matplotlib.pyplot as plt<br>
+pic=imageio.imread('img1.jpg') <br>
+gray=lambda rgb: np.dot(rgb[...,:3], [0.299, 0.587,0.114]) <br>
+gray=gray(pic)<br>
+max_=np.max(gray)<br>
+def log_transform():<br>
+    return(255/np.log(1+max_))*np.log(1+gray)<br>
+plt.figure(figsize=(5,5))<br>
+plt.imshow(log_transform(), cmap=plt.get_cmap(name='gray'))<br>
+plt.axis('off');<br>
+output<br>
+![image](https://user-images.githubusercontent.com/98144065/179948638-b4d41d22-5899-487d-a2ef-b14d60ee944c.png)<br>
+<br>
+prg27<br>
+import imageio<br>
+import matplotlib.pyplot as plt<br>
+#Gamma encoding<br>
+pic=imageio.imread('img3.jpg')<br>
+gamma=2.2 #Gamma < 1 ~ Dark; Gamma > 1~ Bright<br>
+
+gamma_correction=((pic/255)**(1/gamma)) <br>
+plt.figure(figsize=(5,5))<br>
+plt.imshow(gamma_correction)<br>
+plt.axis('off');<br>
+output<br><br>
+![image](https://user-images.githubusercontent.com/98144065/179949121-b3a06a89-a30b-41e4-b8fa-bd8ba86b633a.png)<br><br>
+prg28<br><br>
+from PIL import Image<br><br>
+from PIL import ImageFilter <br><br>
+import matplotlib.pyplot as plt<br><br>
+ 
+my_image = Image.open('img3.jpg')<br><br>
+sharp= my_image.filter(ImageFilter.SHARPEN)<br><br>
+
+sharp.save('D:/i2.jpg')<br><br>
+sharp.show() <br><br>
+plt.imshow(sharp)<br><br>
+plt.show()<br><br>
+output<br><br>
+![image](https://user-images.githubusercontent.com/98144065/179951827-c47ff40b-92de-40c4-96de-0e636ada6b2d.png)<br><br>
+![image](https://user-images.githubusercontent.com/98144065/179952229-0dc22517-dcf6-4fd4-9b9b-fda9e4c1e24a.png)<br><br>
+prg29<br><br>
+#Image flip<br><br>
+import matplotlib.pyplot as plt<br><br>
+#Load the image<br><br>
+img = Image.open('img3.jpg')<br><br>
+plt.imshow(img) <br><br>
+plt.show()<br><br>
+#use the flip function<br><br>
+flip = img.transpose(Image.FLIP_LEFT_RIGHT)<br><br>
+#save the image<br><br>
+flip.save('D:/image_flip.jpg')<br><br>
+plt.imshow(flip)<br>
+plt.show()<br>
+output<br>
+![image](https://user-images.githubusercontent.com/98144065/179952438-e40c8837-ea1c-4903-9a43-5ea663ee8e2a.png)<br>
+![image](https://user-images.githubusercontent.com/98144065/179952464-a9a98c5d-4c30-46a9-98d3-6ae2eaa5a44c.png)<br>
+![image](https://user-images.githubusercontent.com/98144065/179952614-67099e11-9ec2-4e6c-ba86-601daf7a80fe.png)<br>
+
+prg30<br>
+# Importing Image class from PIL module <br>
+import matplotlib.pyplot as plt # Opens a image in RGB mode <br>
+im=Image.open('img3.jpg')<br>
+# Size of the image in pixels (size of original image) #(This is not mandatory)<br>
+width, height = im.size<br>
+#Cropped image of above dimension # (It will not change original image) <br>
+im1=im.crop ((280, 100, 800, 600))<br>
+#Shows the image in image viewer<br>
+im1.show()<br>
+plt.imshow(im1)<br>
+plt.show()<br>
+![image](https://user-images.githubusercontent.com/98144065/179952541-b0492478-04de-4903-835b-693f1d7c49fc.png)<br>
