@@ -499,3 +499,695 @@ im1.show()<br>
 plt.imshow(im1)<br>
 plt.show()<br>
 ![image](https://user-images.githubusercontent.com/98144065/179952541-b0492478-04de-4903-835b-693f1d7c49fc.png)<br>
+
+
+
+
+
+
+1.Program to display grayscale image using read and write operation.
+import cv2
+img=cv2.imread('dog.jpg',0)
+cv2.imshow('dog',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+OUTPUT:
+
+Grayscale
+
+2.Program to display the image using matplotlib.
+import matplotlib.image as mping
+import matplotlib.pyplot as plt
+img = mping.imread('Car.jpg')
+plt.imshow(img)
+
+OUTPUT:
+
+MatPlotLib
+
+3.Program to perform linear transformation rotation.
+import cv2
+from PIL import Image
+img=Image.open("vase.jpg")
+img=img.rotate(180)
+img.show()
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+OUTPUT:
+
+ImgRotate
+
+4.Program to convert color string to RGB color value.
+from PIL import ImageColor
+#using getrgb for yellow
+img1=ImageColor.getrgb("yellow")
+print(img1)
+#using getrgb for red
+img2=ImageColor.getrgb("red")
+print(img2)
+
+OUTPUT:
+
+ColorToRGBvalues
+
+5.Program to create image using colors.
+from PIL import Image
+img=Image.new('RGB',(200,400),(255,255,0))
+img.show()
+
+OUTPUT:
+
+ImgUsingColors
+
+6.Program to visualize the image using various color spaces.
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+img=cv2.imread('ball.jpg')
+plt.imshow(img)
+plt.show()
+img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+plt.imshow(img)
+plt.show()
+img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+plt.imshow(img)
+plt.show()
+
+OUTPUT:
+
+ImgVisualization
+
+7.Program to display the image attributes.
+from PIL import Image
+image=Image.open('baby.jpg')
+print("Filename:", image.filename)
+print("Format:", image.format)
+print("Mode:", image.mode)
+print("Size:", image.size)
+print("Width:", image.width)
+print("Height:", image.height)
+image.close()
+
+OUTPUT:
+
+ImgAttributes
+
+8.Program to convert original image to grayscale and binary.
+import cv2
+#read the image file
+img=cv2.imread('sunflower.jpg')
+cv2.imshow('RGB',img)
+cv2.waitKey(0)
+
+#Gray scale
+
+img=cv2.imread('sunflower.jpg',0)
+cv2.imshow('gray',img)
+cv2.waitKey(0)
+
+#Binary image
+
+ret, bw_img=cv2.threshold(img,127,255,cv2.THRESH_BINARY)
+cv2.imshow('binary', bw_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+OUTPUT:
+
+rgb Grayscale binary
+
+9.Program to Resize the original image.
+import cv2
+img=cv2.imread('pineapple.jpg')
+print('Length and Width of Original image', img.shape)
+cv2.imshow('original image',img)
+cv2.waitKey(0)
+
+#to show the resized image
+
+imgresize=cv2.resize(img,(150,160))
+cv2.imshow('Resized image',imgresize)
+print('Length and Width of Resized image',imgresize.shape)
+cv2.waitKey(0)
+
+OUTPUT:
+
+OrgIMG
+
+Length and Width of Original image (340, 453, 3)
+
+ResizedIMG
+
+Length and Width of Resized image (160, 150, 3)
+
+10.Develop a program to readimage using URL.
+pip install Scikit-Learn
+import skimage
+print(skimage.version)
+start:
+from skimage import io
+import matplotlib.pyplot as plt
+url='https://th.bing.com/th/id/OIP.qVuoApbCGfaPbNRSX8SmIwHaGA?w=213&h=180&c=7&r=0&o=5&pid=1.7.jpg'
+image=io.imread(url)
+plt.imshow(image)
+plt.show()
+OUTPUT: URL
+
+11.Program to mask and blur the image.
+import cv2
+import matplotlib.image as mping
+import matplotlib.pyplot as plt
+img=mping.imread('Orangef.jpg')
+plt.imshow(img)
+plt.show()
+
+OUTPUT: Msk1
+
+hsv_img=cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+light_orange=(1,190,200)
+dark_orange=(18,255,255)
+mask=cv2.inRange(hsv_img, light_green, dark_green)
+result=cv2.bitwise_and(img ,img, mask=mask)
+plt.subplot(1,2,1)
+plt.imshow(mask,cmap='gray')
+plt.subplot(1,2,2)
+plt.imshow(result)
+plt.show()
+
+OUTPUT: Msk2
+
+light_white=(0,0,200)
+dark_white=(145,60,255)
+mask_white=cv2.inRange(hsv_img, light_white, dark_white)
+result_white=cv2.bitwise_and(img, img, mask=mask_white)
+plt.subplot(1,2,1)
+plt.imshow(mask_white, cmap='gray')
+plt.subplot(1,2,2)
+plt.imshow(result_white)
+plt.show()
+
+OUTPUT: Msk3
+
+final_mask = mask + mask_white
+final_result = cv2.bitwise_and(img, img, mask=final_mask)
+plt.subplot(1,2,1)
+plt.imshow(final_mask, cmap='gray')
+plt.subplot(1,2,2)
+plt.imshow(final_result)
+plt.show()
+
+OUTPUT: Msk4
+
+blur = cv2.GaussianBlur(final_result, (7,7),0)
+plt.imshow(blur)
+plt.show()
+
+OUTPUT: Msk5
+
+12.program to perform arithmatic operations on images.
+import cv2
+import matplotlib.image as mping
+import matplotlib.pyplot as plt
+
+#Reading image files
+img1 = cv2.imread('Car.jpg')
+img2 = cv2.imread('Car1.jpg')
+
+#Applying Numpy addition on images
+fimg1 = img1 + img2
+plt.imshow(fimg1)
+plt.show()
+
+OUTPUT: Arith1
+
+#Saving the output image
+cv2.imwrite('output.jpg', fimg1)
+fimg2 = img1 - img2
+plt.imshow(fimg2)
+plt.show()
+
+OUTPUT: Arith2
+
+#Saving the output image
+cv2.imwrite('output.jpg', fimg2)
+fimg3 = img1 * img2
+plt.imshow(fimg3)
+plt.show()
+
+OUTPUT: Arith3
+
+#Saving the output image
+cv2.imwrite('output.jpg', fimg3)
+fimg4 = img1 / img2
+plt.imshow(fimg4)
+plt.show()
+
+#Saving the output image
+cv2.imwrite('output.jpg', fimg4)
+
+OUTPUT: Arith4
+
+13.Program to change the image to different color spaces.
+import cv2
+img = cv2.imread('D:\img.jpg')
+gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+hsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+lab=cv2.cvtColor(img,cv2.COLOR_BGR2LAB)
+hls=cv2.cvtColor(img,cv2.COLOR_BGR2HLS)
+yuv=cv2.cvtColor(img,cv2.COLOR_BGR2YUV)
+cv2.imshow("GRAY image", gray)
+cv2.imshow("HSV image",hsv)
+cv2.imshow("LAB image",lab)
+cv2.imshow("HLS image", hls)
+cv2.imshow("YUV image",yuv)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+OUTPUT: Gray HSV LAB HLS YUV
+
+14.Program to create an image using 2D array.
+import cv2 as c
+import numpy as np
+from PIL import Image
+array = np.zeros([100,200,3], dtype = np.uint8)
+array[:,:100] = [255,130,0]
+array[:,100:] = [0,0,255]
+img = Image.fromarray(array)
+img.save('image1.png')
+img.show()
+c.waitKey(0)
+
+OUTPUT:2D
+
+15.Program to perform bitwise operations on an image.
+import cv2
+import matplotlib.pyplot as plt
+image1=cv2.imread('bird1.jpg')
+image2=cv2.imread('bird1.jpg')
+ax=plt.subplots(figsize=(15,10))
+bitwiseAnd = cv2.bitwise_and(image1,image2)
+bitwiseOr = cv2.bitwise_or(image1,image2)
+bitwiseXor = cv2.bitwise_xor(image1,image2)
+bitwiseNot_img1 = cv2.bitwise_not(image1)
+bitwiseNot_img2 = cv2.bitwise_not(image2)
+plt.subplot(151)
+plt.imshow(bitwiseAnd)
+plt.subplot(152)
+plt.imshow(bitwiseOr)
+plt.subplot(153)
+plt.imshow(bitwiseXor)
+plt.subplot(154)
+plt.imshow(bitwiseNot_img1)
+plt.subplot(155)
+plt.imshow(bitwiseNot_img2)
+cv2.waitKey(0)
+
+OUTPUT:Bitwise
+
+16.Program to perform blur operations.
+import cv2
+import numpy as np
+image = cv2.imread('glass1.jpg')
+cv2.imshow('Original Image', image)
+cv2.waitKey(0)
+
+Gaussian = cv2.GaussianBlur(image, (7, 7),0)
+cv2.imshow('Gaussian Blurring', Gaussian)
+cv2.waitKey(0)
+
+median = cv2.medianBlur(image, 5)
+cv2.imshow('Median Blurring', median)
+cv2.waitKey(0)
+
+bilateral = cv2.bilateralFilter(image, 9, 75, 75)
+cv2.imshow('Bilateral Blurring', bilateral)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+OUTPUT: Blur1 Blur2 Blur3 Blur4
+
+17.Program to enhance an image.
+from PIL import Image
+from PIL import ImageEnhance
+image = Image.open('bird2.jpg')
+image.show()
+
+#Brightness
+enh_bri = ImageEnhance.Brightness(image)
+brightness = 1.5
+image_brightened = enh_bri.enhance(brightness)
+image_brightened.show()
+
+#Color
+enh_col = ImageEnhance.Color(image)
+color = 1.5
+image_colored = enh_col.enhance(color)
+image_colored.show()
+
+#Contrast
+enh_con = ImageEnhance.Contrast(image)
+contrast = 1.5
+image_contrasted = enh_con.enhance(contrast)
+image_contrasted.show()
+
+#Sharpen
+enh_sha = ImageEnhance.Sharpness(image)
+sharpness = 1.5
+image_sharped = enh_sha.enhance(sharpness)
+image_sharped.show()
+
+OUTPUT: IMGenhance IMG_enhance
+
+18.Program to morph an image.
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+from PIL import Image, ImageEnhance
+img = cv2.imread('tree.jpg',0)
+ax = plt.subplots(figsize=(20,10))
+kernel = np.ones((5,5), np.uint8)
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+erosion = cv2.erode(img,kernel,iterations = 1)
+dilation = cv2.dilate(img, kernel, iterations = 1)
+gradient = cv2.morphologyEx(img, cv2.MORPH_GRADIENT, kernel)
+plt.subplot(151)
+plt.imshow(opening)
+plt.subplot(152)
+plt.imshow(closing)
+plt.subplot(153)
+plt.imshow(erosion)
+plt.subplot(154)
+plt.imshow(dilation)
+plt.subplot(155)
+plt.imshow(gradient)
+cv2.waitKey(0)
+
+OUTPUT: Enhance2
+
+19.Program to
+(i)Read the image, convert it into grayscale image
+(ii)write (save) the grayscale image and(iii)
+import cv2
+OriginalImg=cv2.imread('Chick.jpg')
+GrayImg=cv2.imread('Chick.jpg',0)
+isSaved=cv2.imwrite('D:/i.jpg', GrayImg)
+cv2.imshow('Display Original Image', OriginalImg)
+cv2.imshow('Display Grayscale Image',GrayImg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+if isSaved:
+print('The image is succrssfully saved')
+
+OUTPUT: chick_org chick_gray
+
+20.Program to perform Graylevel slicing with background.
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+image=cv2.imread('man.jpg',0)
+x,y=image.shape
+z=np.zeros((x,y))
+for i in range(0,x):
+for j in range(0,y):
+if(image[i][j]>50 and image[i][j]<150):
+z[i][j]=255
+else:
+z[i][j]=image[i][j]
+equ=np.hstack((image,z))
+plt.title('Graylevel slicing with background')
+plt.imshow(equ,'gray')
+plt.show()
+
+OUTPUT: graylevl_bg
+
+21.Program to perform Graylevel slicing without background.
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+image=cv2.imread('man.jpg',0)
+x,y=image.shape
+z=np.zeros((x,y))
+for i in range(0,x):
+for j in range(0,y):
+if(image[i][j]>50 and image[i][j]<150):
+z[i][j]=255
+else:
+z[i][j]=0
+equ=np.hstack((image,z))
+plt.title('Graylevel slicing without background')
+plt.imshow(equ,'gray')
+plt.show()
+
+OUTPUT: graylevl_wo_bg
+
+22.Program to analyze the image data using Histogram.
+//openCV
+import cv2
+import numpy as np
+img = cv2.imread('man.jpg',0)
+hist = cv2.calcHist([img],[0],None,[256],[0,256])
+plt.hist(img.ravel(),256,[0,256])
+_ = plt.xlabel('Intensity Value')
+_ = plt.ylabel('Count')
+plt.show()
+
+OUTPUT: hist_openCV
+
+//skimage
+from skimage import io
+import matplotlib.pyplot as plt
+image = io.imread('man.jpg')
+ax = plt.hist(image.ravel(), bins = 256)
+_ = plt.xlabel('Intensity Value')
+_ = plt.ylabel('Count')
+plt.show()
+
+OUTPUT: hist_skimage
+
+23.Program to perform basic image data analysis using intensity transformation:
+a) Image negative
+b) Log transformation
+c) Gamma correction
+%matplotlib inline
+import imageio
+import matplotlib.pyplot as plt
+#import warnings
+#import matplotlib.cbook
+#warnings.filterwarnings("ignore", category=matplotlib.cbook.mplDeprecation)
+pic=imageio.imread("violet.jpg")
+plt.figure(figsize=(6,6))
+plt.imshow(pic);
+plt.axis('off');
+
+OUTPUT: v_org
+
+negative = 255 - pic
+plt.figure(figsize=(6,6))
+plt.imshow(negative);
+plt.axis('off');
+
+OUTPUT: v_neg
+
+%matplotlib inline
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+pic=cv2.imread('violet.jpg')
+gray=lambda rgb : np.dot(rgb[...,:3],[0.299,0.587,0.114])
+gray=gray(pic)
+
+max=np.max(gray)
+
+def logtransform():
+return(255/np.log(1+max))*np.log(1+gray)
+plt.figure(figsize=(5,5))
+plt.imshow(logtransform(), cmap=plt.get_cmap(name='gray'))
+plt.axis('off');
+
+OUTPUT: v_log
+
+Gamma encoding
+import imageio
+import matplotlib.pyplot as plt
+pic=imageio.imread('violet.jpg')
+gamma=2.2 # Gamma < 1 = Dark; Gamma > 1 = Bright
+
+gamma_correction = ((pic/255)**(1/gamma))
+plt.figure(figsize=(5,5))
+plt.imshow(gamma_correction)
+plt.axis('off');
+
+OUTPUT: v_gamma
+
+24.Program to perform basic image manipulation:
+a) Sharpness<br>
+b) Flipping<br>
+c) Cropping<br>
+
+#Image Sharpen<br>
+from PIL import Image
+from PIL import ImageFilter
+import matplotlib.pyplot as plt
+#Load the image
+my_image=Image.open('dog1.jpg')
+#Use sharpen function
+sharp=my_image.filter(ImageFilter.SHARPEN)
+#Save the image
+sharp.save('E:/image_sharpen.jpg')
+sharp.show()
+plt.imshow(sharp)
+plt.show()
+
+OUTPUT: dog1
+
+E_dog
+
+#Image flip
+import matplotlib.pyplot as plt
+#Load the image
+img=Image.open('dog1.jpg')
+plt.imshow(img)
+plt.show()
+#use the flip function
+flip=img.transpose(Image.FLIP_LEFT_RIGHT)
+#save the image
+flip.save('E:/image_flip.jpg')
+plt.imshow(flip)
+plt.show()
+
+OUTPUT: E_dogg
+dog_flip
+
+Image crop
+#Importing Image class from
+from PIL import Image
+import matplotlib.pyplot as plt
+im=Image.open('dog1.jpg')
+width,height=im.size
+im1=im.crop((280,100,800,600))
+im1.show()
+plt.imshow(im1)
+plt.show()
+
+OUTPUT:
+img_crop
+
+
+25.Program to perform edge detection:
+#Canny Edge detection
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.style.use('seaborn')
+
+loaded_image = cv2.imread("mario.jpg")
+loaded_image = cv2.cvtColor(loaded_image,cv2.COLOR_BGR2RGB)
+
+gray_image = cv2.cvtColor(loaded_image, cv2.COLOR_BGR2GRAY)
+edged_image = cv2.Canny(gray_image, threshold1=30, threshold2=100)
+
+plt.figure(figsize=(20,20))
+plt.subplot(1,3,1)
+plt.imshow(loaded_image, cmap="gray")
+plt.title("Original Image")
+plt.axis("off")
+plt.subplot(1,3,2)
+plt.imshow(gray_image, cmap="gray")
+plt.axis("off")
+plt.title("GrayScale Image")
+plt.subplot(1,3,3)
+plt.imshow(edged_image,cmap="gray")
+plt.axis("off")
+plt.title("Canny Edge Detected Image")
+plt.show()
+
+OUTPUT:
+Screenshot 2022-09-01 163313
+
+#Laplacian and Sobel Edge detecting methods
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+#Loading image
+#img0 = cv2.imread('SanFrancisco.jpg',)
+img0 = cv2.imread('mario.jpg',)
+
+#converting to gray scale
+gray = cv2.cvtColor(img0, cv2.COLOR_BGR2GRAY)
+
+#remove noise
+img= cv2.GaussianBlur(gray,(3,3),0)
+
+#convolute with proper kernels
+laplacian= cv2.Laplacian(img,cv2.CV_64F)
+sobelx = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=5) #x
+sobely = cv2.Sobel(img,cv2.CV_64F,0,1,ksize=5) #y
+
+plt.subplot(2,2,1), plt.imshow(img,cmap = 'gray')
+plt.title('Original'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,2), plt.imshow(laplacian, cmap = 'gray')
+plt.title('Laplacian'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,3), plt.imshow(sobelx,cmap = 'gray')
+plt.title('Sobel x'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,4), plt.imshow(sobely,cmap = 'gray')
+plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
+plt.show()
+
+OUTPUT:
+Screenshot 2022-09-01 163340
+
+#Edge detection using Prewitt operator
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread('mario.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+img_gaussian = cv2.GaussianBlur (gray, (3,3),0)
+
+#prewitt
+kernelx = np.array([[1,1,1], [0,0,0],[-1,-1,-1]])
+kernely = np.array([[-1,0,1],[-1,0,1],[-1,0,1]])
+img_prewittx = cv2.filter2D (img_gaussian, -1, kernelx)
+img_prewitty = cv2.filter2D (img_gaussian, -1, kernely)
+cv2.imshow("Original Image", img)
+cv2.imshow("Prewitt x", img_prewittx)
+cv2.imshow("Prewitt y", img_prewitty)
+cv2.imshow("Prewitt", img_prewittx + img_prewitty)
+cv2.waitKey()
+cv2.destroyAllwindows()
+
+OUTPUT:
+Screenshot 2022-09-01 162418
+
+#Roberts Edge Detection- Roberts cross operator
+import cv2
+import numpy as np
+from scipy import ndimage
+from matplotlib import pyplot as plt
+
+roberts_cross_v = np.array([[1, 0 ],[0,-1 ]] )
+roberts_cross_h = np.array([[ 0, 1 ], [-1, 0 ]])
+
+img= cv2.imread("mario.jpg",0).astype('float64')
+img/=255.0
+vertical=ndimage.convolve( img, roberts_cross_v )
+horizontal=ndimage.convolve( img, roberts_cross_h)
+
+
+edged_img = np.sqrt(np.square(horizontal) + np.square(vertical))
+edged_img*=255
+cv2.imwrite("output.jpg", edged_img)
+cv2.imshow("OutputImage", edged_img)
+cv2.waitKey()
+cv2.destroyAllwindows()
+
+OUTPUT:
+Screenshot 2022-09-01 163123
